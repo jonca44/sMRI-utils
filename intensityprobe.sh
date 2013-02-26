@@ -8,7 +8,10 @@
 
 ##############################################
 
-echo "Enter the full name of the file containing the subject list" ; read subjlist
+echo "List the subjects' subject IDs, separated by spaces:"
+read subjsinput
+echo $subjsinput | tr ' ' '\n' > subjsinput_ip.txt
+
 echo "How do you want to identify the output file?  (provide, e.g., the name of the dataset)" ; read dataset
 mkdir ${dataset}_intensity_distribution ; mkdir ${dataset}_intensity_distribution/surface_parameters
 
@@ -50,7 +53,7 @@ rm ./${dataset}_intensity_distribution/y.txt ; mv ./${dataset}_intensity_distrib
 echo "$line	CSFpeaks	`cat ./${dataset}_intensity_distribution/individualCSFvalues.txt`" >> ./${dataset}_intensity_distribution/${dataset}_CSFpeaks.txt
 echo "`cat ./${dataset}_intensity_distribution/individualCSFvalues.txt`" >> ./${dataset}_intensity_distribution/${dataset}_CSFpeaks_unidentified.txt
 
-done < $subjlist
+done < subjsinput_ip.txt
 
 ##############################################
 
@@ -154,7 +157,7 @@ fi
 sed '/^$/d' ./${dataset}_intensity_distribution/${dataset}_nativetissuevalues_stats.txt > z.txt
 mv z.txt ./${dataset}_intensity_distribution/${dataset}_nativetissuevalues_stats.txt
 
-done < $subjlist
+done < subjsinput_ip.txt
 echo "---------------------------------------" >> ./${dataset}_intensity_distribution/${dataset}_nativetissuevalues_stats.txt
 done < ./${dataset}_intensity_distribution/tissuevaluetypes.txt
 
@@ -314,7 +317,7 @@ mv z.txt ./${dataset}_intensity_distribution/${dataset}_surfaceparameter_stats.t
 #
 ##############################################
 
-done < $subjlist
+done < subjsinput_ip.txt
 echo "---------------------------------------" >> ./${dataset}_intensity_distribution/${dataset}_surfaceparameter_stats.txt
 done < ./${dataset}_intensity_distribution/paramtypes.txt
 
@@ -336,5 +339,4 @@ rm ./${dataset}_intensity_distribution/${dataset}_GMvalleys_unidentified.txt
 rm ./${dataset}_intensity_distribution/${dataset}_CSFpeaks_unidentified.txt
 rm ./${dataset}_intensity_distribution/${dataset}_unidentifiednativetissuelist.txt
 rm ./${dataset}_intensity_distribution/all_non_null_values.txt
-
-exit
+rm ./subjsinput_ip.txt

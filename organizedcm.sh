@@ -55,15 +55,13 @@ export -f org_dicoms
 
 ##############################################
 
-a=1
-while [ $a -gt 0 ]
+echo "List the subjects' subject IDs, separated by spaces:"
+read subjsinput
+echo $subjsinput | tr ' ' '\n' > subjsinput_dcm.txt
+
+cat subjsinput_dcm.txt | while read subjid
 do
-	echo "Enter subject ID (e.g., 1032).  Ctrl+C to break out of loop."
-	
-	read subjid
-
 	echo "Organizing ${subjid}'s DICOMs into folders denoted by their scans of origin"
-
 	gnome-terminal --tab --title="Organizing ${subjid}'s DICOMS" -e "/bin/bash -c 'org_dicoms $subjid'"
-	
 done
+rm subjsinput_dcm.txt
