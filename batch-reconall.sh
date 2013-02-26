@@ -5,7 +5,7 @@
 #	- Uses a 2011 brain atlas that is not the default in FreeSurfer 5.0.
 #	- Disables labeling of white matter segmentation abnormalities
 #Author: Warren Winter
-#Date: 06/20/
+#Date: 02/25/2013
 
 
 ##########
