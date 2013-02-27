@@ -26,31 +26,17 @@ function reconall_position_select() {
 	read choice
 
 	if [ $choice -eq 1 ]; then 
-		echo "Enter subject ID.  " ; read subjid ; echo "Enter path to the subject's first .dcm or .nii file for his/her T1 MPRAGE RMS scan" ; read dcmpath ; echo "Starting a full recon-all for subject number $subjid" ; gnome-terminal --tab --title="recon-all; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; mosbatch recon-all -i $dcmpath -subjid $subjid ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -mprage -all -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+		echo "Enter subject ID.  " ; read subjid ; echo "Enter path to the subject's first .dcm or .nii file for his/her T1 MPRAGE RMS scan" ; read dcmpath ; echo "Starting a full recon-all for subject number $subjid" ; gnome-terminal --tab --title="recon-all; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; mosbatch recon-all -i $dcmpath -subjid $subjid ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -mprage -all -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 	elif [ $choice -eq 2 ]; then
-		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2-cp to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2-cp -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2-cp -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2-cp to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2-cp -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2-cp -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 	elif [ $choice -eq 3 ]; then 
-		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2 to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2 to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 	elif [ $choice -eq 4 ]; then 
-		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2-wm to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2-wm -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2-wm -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2-wm to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2-wm -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2-wm -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 	elif [ $choice -eq 5 ]; then 
-		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2 to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+		echo "Enter subject ID.  " ; read subjid ; echo "Starting recon-all from -autorecon2 to the end for subject number $subjid" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjid: $subjid" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjid}/scripts/expert.opts ; mosbatch recon-all -expert ${subjid}/scripts/expert.opts -xopts-overwrite -s $subjid -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 	fi
 }
-
-
-#########
-#Checks for presence of 2011 brain atlases in SUBJECTS_DIR.  If missing, copies it from /chb/sheridanlab/software/etc.
-
-if [ ! -f ./RB_all_2011-10-25.gca ]
-  then scp /chb/sheridanlab/software/etc/RB_all_2011-10-25.gca .
-fi
-
-if [ ! -f ./RB_all_withskull_2011-10-25.gca ]
-then scp /chb/sheridanlab/software/etc/RB_all_withskull_2011-10-25.gca .
-fi
-
-#########
 
 echo "Reprocess multiple subjects from the same point in the recon-all stream? (yes/no)"
 read multisubjs
@@ -80,13 +66,13 @@ if [ $multisubjs == "yes" ] || [ $multisubjs == "Yes" ] || [ $multisubjs == "y" 
 	cat subjsinput_ra.txt | while read subjinput
 	do
 		if [ $choice -eq 1 ]; then 
-			echo "Starting recon-all from -autorecon2-cp to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2-cp -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2-cp -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+			echo "Starting recon-all from -autorecon2-cp to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2-cp -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2-cp -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 		elif [ $choice -eq 2 ]; then 
-			echo "Starting recon-all from -autorecon2 to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+			echo "Starting recon-all from -autorecon2 to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 		elif [ $choice -eq 3 ]; then 
-			echo "Starting recon-all from -autorecon2-wm to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2-wm -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2-wm -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+			echo "Starting recon-all from -autorecon2-wm to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2-wm -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2-wm -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 		elif [ $choice -eq 4 ]; then 
-			echo "Starting recon-all from -autorecon2 to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir . -nowmsa'"
+			echo "Starting recon-all from -autorecon2 to the end for subject number $subjinput" ; gnome-terminal --tab --title="-autorecon2 -autorecon3; subjinput: $subjinput" -e "/bin/bash -c 'chb-fsstable ; cp xopts.txt ${subjinput}/scripts/expert.opts ; mosbatch recon-all -expert ${subjinput}/scripts/expert.opts -xopts-overwrite -s $subjinput -autorecon2 -autorecon3 -gca RB_all_2011-10-25.gca -gca-skull RB_all_withskull_2011-10-25.gca -gca-dir /chb/sheridanlab/software/etc -nowmsa'"
 		fi
 	done
 	rm subjsinput_ra.txt
